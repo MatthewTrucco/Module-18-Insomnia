@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
-const reactionSchema = require('../Reaction'); 
+const reactionSchema = require('../Reaction');
+
+
+const formatDate = (timestamp) => {
+  return new Date(timestamp).toISOString();
+};
 
 const thoughtSchema = new mongoose.Schema({
   thoughtText: {
@@ -11,7 +16,7 @@ const thoughtSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
-    get: timestamp => formatDate(timestamp) 
+    get: formatDate
   },
   username: {
     type: String,
