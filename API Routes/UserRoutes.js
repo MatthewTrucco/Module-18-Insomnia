@@ -7,10 +7,13 @@ const Thought = require('../models/Thought');
 
 router.get('/', async (req, res) => {
   try {
-    const users = await User.find({}).populate('thoughts').populate('friends');
+    console.log('Attempting to find users...');
+    const users = await User.find({}); // Temporarily removed populate for debugging purposes
+    console.log('Users found:', users);
     res.json(users);
   } catch (err) {
-    res.status(500).send(err);
+    console.error('Error finding users:', err);
+    res.status(500).send(err.message); // This will send the error message to the client
   }
 });
 
