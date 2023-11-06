@@ -8,12 +8,12 @@ const Thought = require('../models/Thought');
 router.get('/', async (req, res) => {
   try {
     console.log('Attempting to find users...');
-    const users = await User.find({}); // Temporarily removed populate for debugging purposes
+    const users = await User.find({}); 
     console.log('Users found:', users);
     res.json(users);
   } catch (err) {
     console.error('Error finding users:', err);
-    res.status(500).send(err.message); // This will send the error message to the client
+    res.status(500).send(err.message); 
   }
 });
 
