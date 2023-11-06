@@ -5,9 +5,12 @@ const User = require('../models/User');
 
 router.get('/', async (req, res) => {
   try {
+    console.log("GET ROUTE")
     const thoughts = await Thought.find({});
+    console.log(thoughts, "thoughts")
     res.json(thoughts);
   } catch (err) {
+    console.log(err, "err")
     res.status(500).json(err);
   }
 });
